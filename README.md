@@ -59,7 +59,7 @@
 
 ### Табличка с оценками
 
-Появится здесь позже.
+https://docs.google.com/spreadsheets/d/1nql4zx3PZNVtIPQwnYfofkR8VyEl8X1iJGZwWHPB1SY/edit?usp=sharing
 
 ### Понижающие коэффициенты ДЗ
 

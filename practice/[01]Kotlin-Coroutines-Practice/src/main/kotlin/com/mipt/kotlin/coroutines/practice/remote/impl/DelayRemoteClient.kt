@@ -14,7 +14,7 @@ class DelayRemoteClient : RemoteClient {
     }
 
     override suspend fun loadRemotePayload(identifier: Int): RemoteData {
-        if (identifier % 10 == 4) {
+        if (identifier % 100 == 41) {
             println("Remote data with id: $identifier not found")
             throwNotFoundError(identifier)
         }

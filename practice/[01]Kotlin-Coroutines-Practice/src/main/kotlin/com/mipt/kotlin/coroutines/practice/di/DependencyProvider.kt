@@ -26,7 +26,7 @@ object DependencyProvider {
         return identifiersRange.toList()
     }
 
-    fun provideTasksToCompute(): Collection<Task.GenericComputeTask> {
+    fun generateTasksToCompute(): Collection<Task.GenericComputeTask> {
         val genericTasks = mutableListOf<Task.GenericComputeTask>()
 
         repeat(GENERIC_TASKS_COUNT) {

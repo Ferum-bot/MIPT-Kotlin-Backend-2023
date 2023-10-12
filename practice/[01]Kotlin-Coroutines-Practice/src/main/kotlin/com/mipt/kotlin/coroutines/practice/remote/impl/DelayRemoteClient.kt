@@ -21,7 +21,7 @@ class DelayRemoteClient : RemoteClient {
         val delayIndexRange = 0..possibleDelays.lastIndex
         val delayValue = possibleDelays[Random.nextInt(delayIndexRange)]
 
-        print("Loading remote data for id: $identifier")
+        println("Loading remote data for id: $identifier")
         delay(delayValue)
 
         return RemoteData(

@@ -1,7 +1,7 @@
 package com.mipt.kotlin.exposed.practice.repository.impl
 
-import com.mipt.kotlin.ktor.practice.model.Comment
-import com.mipt.kotlin.ktor.practice.repository.CommentsRepository
+import com.mipt.kotlin.exposed.practice.model.Comment
+import com.mipt.kotlin.exposed.practice.repository.CommentsRepository
 import java.time.Instant
 import kotlin.random.Random
 

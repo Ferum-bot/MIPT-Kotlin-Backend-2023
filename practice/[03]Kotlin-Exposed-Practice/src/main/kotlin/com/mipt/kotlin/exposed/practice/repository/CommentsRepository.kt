@@ -1,6 +1,6 @@
 package com.mipt.kotlin.exposed.practice.repository
 
-import com.mipt.kotlin.ktor.practice.model.Comment
+import com.mipt.kotlin.exposed.practice.model.Comment
 
 interface CommentsRepository {
 

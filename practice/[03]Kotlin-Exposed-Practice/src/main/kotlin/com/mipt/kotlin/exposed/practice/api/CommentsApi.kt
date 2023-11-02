@@ -1,7 +1,7 @@
 package com.mipt.kotlin.exposed.practice.api
 
-import com.mipt.kotlin.ktor.practice.api.model.CreateCommentRequest
-import com.mipt.kotlin.ktor.practice.repository.CommentsRepository
+import com.mipt.kotlin.exposed.practice.api.model.CreateCommentRequest
+import com.mipt.kotlin.exposed.practice.repository.CommentsRepository
 import io.ktor.http.HttpStatusCode
 import io.ktor.server.application.Application
 import io.ktor.server.application.call

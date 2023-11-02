@@ -5,7 +5,7 @@ import com.mipt.kotlin.exposed.practice.repository.CommentsRepository
 import java.time.Instant
 import kotlin.random.Random
 
-class DefaultCommentsRepository: CommentsRepository {
+class InMemoryCommentsRepository: CommentsRepository {
 
     private val comments: MutableSet<Comment> = mutableSetOf()
 

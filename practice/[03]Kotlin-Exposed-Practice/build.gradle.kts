@@ -18,6 +18,8 @@ dependencies {
     val ktorVersion = "2.3.5"
     val koinVersion = "3.5.0"
     val logbackVersion = "1.4.11"
+    val exposedVersion = "0.44.1"
+    val postgresDriverVersion = "42.6.0"
 
     testImplementation(kotlin("test"))
 
@@ -34,6 +36,15 @@ dependencies {
     // Koin dependencies
     implementation("io.insert-koin:koin-core:$koinVersion")
     implementation("io.insert-koin:koin-ktor:$koinVersion")
+
+    // Exposed dependencies
+    implementation("org.jetbrains.exposed:exposed-core:$exposedVersion")
+    implementation("org.jetbrains.exposed:exposed-crypt:$exposedVersion")
+    implementation("org.jetbrains.exposed:exposed-dao:$exposedVersion")
+    implementation("org.jetbrains.exposed:exposed-jdbc:$exposedVersion")
+    implementation("org.jetbrains.exposed:exposed-kotlin-datetime:$exposedVersion")
+
+    implementation("org.postgresql:postgresql:${postgresDriverVersion}")
 }
 
 tasks.test {

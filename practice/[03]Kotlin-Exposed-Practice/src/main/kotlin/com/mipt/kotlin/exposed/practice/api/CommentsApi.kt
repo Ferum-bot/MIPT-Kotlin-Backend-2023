@@ -42,6 +42,5 @@ fun Application.commentsApi() {
             call.respond(createdComment)
         }
 
-
     }
 }

@@ -1,5 +1,6 @@
+package com.mipt.kotlin.exposed.practice
+
 import com.mipt.kotlin.exposed.practice.api.commentsApi
-import com.mipt.kotlin.exposed.practice.commentsModule
 import io.ktor.serialization.kotlinx.json.json
 import io.ktor.server.application.Application
 import io.ktor.server.application.install

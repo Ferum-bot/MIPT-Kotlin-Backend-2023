@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     kotlin("jvm") version "1.9.0"
     kotlin("plugin.serialization") version "1.9.10"
+    id("com.github.johnrengelman.shadow") version "7.1.2"
     application
 }
 
@@ -37,7 +38,7 @@ tasks.withType<KotlinCompile> {
 }
 
 kotlin {
-    jvmToolchain(8)
+    jvmToolchain(17)
 }
 
 application {

@@ -1,0 +1,36 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: testing-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt"
+spec:
+  tls:
+    - hosts:
+        - sub-host.my-hostname.ru
+        - my-hostname.ru
+      secretName: letsencrypt
+  rules:
+    - host: my-hostname.ru
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: mipt-kotlin-ktor-load-balancer
+                port:
+                  number: 8080
+    - host: sub-host.my-hostname.ru
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: mipt-kotlin-ktor-load-balancer
+                port:
+                  number: 9090
+
+

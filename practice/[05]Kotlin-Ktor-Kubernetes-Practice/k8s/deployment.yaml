@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mipt-kotlin-ktor-deployment
+  labels:
+    owner: Ferum-bot
+    environment: testing
+    platform: kotlin-ktor
+  namespace: default
+spec:
+  replicas: 2
+  progressDeadlineSeconds: 120
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      environment: testing
+      platform: kotlin-ktor
+      application: mipt-ktor-example-app
+  template:
+    metadata:
+      labels:
+        environment: testing
+        platform: kotlin-ktor
+        application: mipt-ktor-example-app
+    spec:
+      containers:
+        - name: mipt-kotlin-ktor
+          image: ferumbot/my/mipt-kotlin-app:v1
+          readinessProbe:
+            httpGet:
+              port: 8080
+              path: /metrics
+            initialDelaySeconds: 40
+            periodSeconds: 20
+          ports:
+            - containerPort: 8080
+              hostPort: 8080
+          env:
+            - name: SOME_ENV
+              value: "Hello from deployment"
+
+

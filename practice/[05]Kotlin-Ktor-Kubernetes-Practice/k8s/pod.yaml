@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: KtorExamplePod
+  labels:
+    environment: testing
+    platform: kotlin-ktor
+spec:
+  containers:
+    - name: mipt-kotlin-ktor
+      image: ferumbot/my/mipt-kotlin-app:v1
+      ports:
+        - containerPort: 8080

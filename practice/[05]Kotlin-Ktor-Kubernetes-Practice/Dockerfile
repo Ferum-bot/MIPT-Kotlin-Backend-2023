@@ -1,16 +1,11 @@
-# базовый образ
-FROM ubuntu:20.04
+FROM gradle:7-jdk17 AS build
+COPY --chown=gradle:gradle . /home/gradle/src
+WORKDIR /home/gradle/src
+RUN gradle shadowJar --no-daemon
 
-# установка желаемых пакетов и зависимостей
-RUN apt-get update
-RUN apt-get install -y wget && echo "We installed wget!"
+FROM openjdk:17
+RUN mkdir /app
+COPY --from=build /home/gradle/src/build/libs/*.jar /app/app.jar
+EXPOSE 8080:8080
 
-# создание каталога /mytest
-WORKDIR /mytest
-
-# создание файла testfile
-RUN touch testfile
-
-# ls и echo будут выполняться при запуске контейнера
-CMD ls && echo "Show me mytest"
-
+CMD ["java", "-XX:+UnlockExperimentalVMOptions", "-XX:InitialRAMFraction=2", "-XX:MinRAMFraction=2", "-XX:MaxRAMFraction=2", "-XX:+UseG1GC", "-XX:MaxGCPauseMillis=100", "-XX:+UseStringDeduplication", "-Xmx4096m", "-jar", "/app/app.jar"]
